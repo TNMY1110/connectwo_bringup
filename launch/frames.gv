@@ -1,0 +1,8 @@
+digraph G {
+"map" -> "odom"[label="Broadcaster: /turtlebot3_slam_gmapping\nAverage rate: 20.202 Hz\nMost recent transform: 1760942320.969 ( -0.049 sec old)\nBuffer length: 4.950 sec\n"];
+"odom" -> "base_footprint"[label="Broadcaster: /connectwo_core\nAverage rate: 10.167 Hz\nMost recent transform: 1760942320.798 ( 0.122 sec old)\nBuffer length: 4.820 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1760942320.921"[ shape=plaintext ] ;
+ }->"map";
+}

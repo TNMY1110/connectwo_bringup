@@ -1,9 +1,9 @@
 <launch>
-  <arg name="multi_robot_name" default=""/>
-
-  <node pkg="rosserial_python" type="serial_node.py" name="connectwo_core" output="screen">
-    <param name="port" value="/dev/Connectwo"/>
-    <param name="baud" value="57600"/>
-    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
-  </node>
-</launch>
+    <arg name="multi_robot_name" default=""/>
+    <node pkg="rosserial_python" type="serial_node.py" name="connectwo_core" output="screen">
+      <param name="port" value="/dev/connectwo"/>
+      <param name="baud" value="230400"/>
+      <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+      <param name="sleep_time" value="0.005"/>
+    </node>
+  </launch>
