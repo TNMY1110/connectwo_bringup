@@ -1,0 +1,25 @@
+<launch>
+  <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  
+  <arg name="map_file" default="$(find connectwo_bringup)/maps/test_map.yaml"/>
+  <arg name="open_rviz" default="false"/> 
+  <include file="$(find connectwo_bringup)/launch/connectwo_core.launch"/>
+  <include file="$(find connectwo_bringup)/launch/connectwo_rplidar.launch" />
+  
+  <include file="$(find connectwo_bringup)/launch/connectwo_remote.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)"/>
+
+  <include file="$(find connectwo_bringup)/launch/amcl.launch"/>
+
+  <include file="$(find connectwo_bringup)/launch/move_base.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find connectwo_bringup)/rviz/connectwo_navigation.rviz"/>
+  </group>
+</launch>
