@@ -12,5 +12,8 @@
     <param name="inverted"            type="bool"   value="false"/>
     <param name="angle_compensate"    type="bool"   value="true"/>
   </node>
+
+  <!-- 지지대 노이즈 필터 추가 -->
+  <node pkg="connectwo_bringup" type="lidar_blind_spot_filter.py" name="lidar_filter" output="screen"/>
 </launch>
 
