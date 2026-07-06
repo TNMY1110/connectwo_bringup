@@ -9,6 +9,9 @@ def odom_callback(msg):
     global current_odom
     current_odom = msg # 최신 메시지가 들어오면 전역 변수에 계속 업데이트
 
+def shutdown_hook():
+    rospy.loginfo("odom_to_tf_converter shutting down...")
+
 if __name__ == '__main__':
     rospy.init_node('odom_to_tf_converter')
     

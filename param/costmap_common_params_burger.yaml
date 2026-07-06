@@ -2,15 +2,17 @@
 # Base configuration modified from TurtleBot3 Navigation Package
 # Tailored and Tuned for Connectwo Robot
 # ==============================================================================
-obstacle_range: 3.0
-raytrace_range: 3.5
+obstacle_layer:
+  obstacle_range: 2.0
+  raytrace_range: 2.5
+
+  observation_sources: scan
+  scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true, inf_is_valid: true}
 
 footprint: [[0.25, -0.25], [0.25, 0.25], [-0.25, 0.25], [-0.25, -0.25]]
-#robot_radius: 0.105
 
-inflation_radius: 0.65
-cost_scaling_factor: 10.0
+inflation_layer:
+  inflation_radius: 0.4
+  cost_scaling_factor: 10.0
 
 map_type: costmap
-observation_sources: scan
-scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}

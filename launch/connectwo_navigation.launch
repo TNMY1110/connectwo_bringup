@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
   
-  <arg name="map_file" default="$(find connectwo_bringup)/maps/test_map.yaml"/>
+  <arg name="map_file" default="$(find connectwo_bringup)/maps/map_first.yaml"/>
   <arg name="open_rviz" default="false"/> 
   <include file="$(find connectwo_bringup)/launch/connectwo_core.launch"/>
   <include file="$(find connectwo_bringup)/launch/connectwo_rplidar.launch" />

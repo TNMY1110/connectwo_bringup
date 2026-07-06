@@ -16,7 +16,7 @@ def scan_callback(msg):
     for i in range(len(ranges)):
         for (low, high) in BLOCKED_RANGES:
             if low <= angle <= high:
-                ranges[i] = float('inf')  # 해당 구간 무효화
+                ranges[i] = float('nan')  # 해당 구간 무효화
                 break
         angle += msg.angle_increment
     new_msg.ranges = ranges
