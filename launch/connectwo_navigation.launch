@@ -18,6 +18,8 @@
     <arg name="model" value="$(arg model)" />
   </include>
 
+  <node pkg="connectwo_bringup" type="stop_localization_recovery.py" name="amcl_stop_calibrator" output="screen"/>
+
   <group if="$(arg open_rviz)"> 
     <node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find connectwo_bringup)/rviz/connectwo_navigation.rviz"/>
